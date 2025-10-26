@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  neo4j:
+    image: neo4j:5.15-community
+    container_name: blueship-neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/blueship123
+      - NEO4J_PLUGINS=["apoc"]
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    networks:
+      - blueship-network
+
+  ai-service:
+    build:
+      context: ../services/ai
+      dockerfile: Dockerfile
+    container_name: blueship-ai
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - ../services/ai:/app
+    networks:
+      - blueship-network
+    depends_on:
+      - neo4j
+
+volumes:
+  neo4j_data:
+  neo4j_logs:
+
+networks:
+  blueship-network:
+    driver: bridge

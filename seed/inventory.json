@@ -1,0 +1,5 @@
+[
+  {"warehouse":"CHI","sku":"SKU-004","qty":12},
+  {"warehouse":"DAL","sku":"SKU-004","qty":120},
+  {"warehouse":"CHI","sku":"SKU-010","qty":40}
+]

@@ -1,0 +1,5 @@
+[
+  {"id":"SO-1009","warehouse":"CHI","sku":"SKU-004","qty":12,"promise":"today 17:00","status":"Picking"},
+  {"id":"SO-1010","warehouse":"CHI","sku":"SKU-010","qty":4,"promise":"today 19:00","status":"Allocated"},
+  {"id":"TO-129","warehouse":"DAL","sku":"SKU-004","qty":40,"promise":"tomorrow","status":"Scheduled"}
+]
